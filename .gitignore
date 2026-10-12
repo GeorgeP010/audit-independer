@@ -3,3 +3,9 @@
 node_modules/
 *.log
 .tempmediaStorage/
+
+# Legacy design folders (excluded from GitHub / Vercel deployment)
+auditor_kwalificatiedossier_audit_independer/
+bedrijven_dossiers_audit_independer/
+verification_matrix_system/
+werklijst_audit_planning_audit_independer/

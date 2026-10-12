@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit Independer // Green Key — Auditor Dossier &amp; Partijen Beheer</title>
+<!-- Google Fonts: Space Grotesk & Hanken Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#131a33",
+            "on-error-container": "#93000a",
+            "secondary-container": "#d8deff",
+            "outline-variant": "#bbcabf",
+            "on-surface-variant": "#3c4a42",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#5a627e",
+            "tertiary-container": "#71a1ff",
+            "tertiary-fixed-dim": "#adc6ff",
+            "secondary-fixed-dim": "#bec5e5",
+            "surface-container-high": "#e2e7ff",
+            "surface-container-highest": "#dae2fd",
+            "inverse-primary": "#4edea3",
+            "surface": "#faf8ff",
+            "surface-variant": "#dae2fd",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#006c49",
+            "surface-container": "#eaedff",
+            "inverse-surface": "#283044",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#002113",
+            "on-primary-fixed-variant": "#005236",
+            "inverse-on-surface": "#eef0ff",
+            "surface-container-low": "#f2f3ff",
+            "on-tertiary-fixed": "#001a42",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#dbe1ff",
+            "primary-container": "#10b981",
+            "secondary": "#565d79",
+            "primary-fixed-dim": "#4edea3",
+            "surface-dim": "#d2d9f4",
+            "on-primary-container": "#00422b",
+            "on-surface": "#131b2e",
+            "background": "#faf8ff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-container": "#00367a",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "primary": "#006c49",
+            "on-background": "#131b2e",
+            "on-tertiary-fixed-variant": "#004395",
+            "tertiary": "#005ac2",
+            "tertiary-fixed": "#d8e2ff",
+            "outline": "#6c7a71",
+            "on-secondary-fixed-variant": "#3e4660",
+            "primary-fixed": "#6ffbbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xxl": "3rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-md": "0.75rem",
+            "margin-tablet": "2rem",
+            "space-xxs": "0.125rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "3rem",
+            "space-lg": "1.25rem"
+          },
+          "fontFamily": {
+            "metric-display": [
+              "Space Grotesk"
+            ],
+            "body-lg": [
+              "Hanken Grotesk"
+            ],
+            "headline-md": [
+              "Space Grotesk"
+            ],
+            "headline-xl": [
+              "Space Grotesk"
+            ],
+            "headline-lg": [
+              "Space Grotesk"
+            ],
+            "body-md": [
+              "Hanken Grotesk"
+            ],
+            "label-lg": [
+              "Space Grotesk"
+            ],
+            "headline-lg-mobile": [
+              "Space Grotesk"
+            ],
+            "label-sm": [
+              "Space Grotesk"
+            ],
+            "body-sm": [
+              "Hanken Grotesk"
+            ],
+            "label-md": [
+              "Space Grotesk"
+            ],
+            "headline-sm": [
+              "Space Grotesk"
+            ],
+            "headline-xl-mobile": [
+              "Space Grotesk"
+            ]
+          },
+          "fontSize": {
+            "metric-display": [
+              "32px",
+              {
+                "lineHeight": "36px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-lg": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-md": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-xl": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.03em",
+                "fontWeight": "700"
+              }
+            ],
+            "headline-lg": [
+              "30px",
+              {
+                "lineHeight": "38px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0em",
+                "fontWeight": "400"
+              }
+            ],
+            "label-lg": [
+              "13px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.05em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg-mobile": [
+              "22px",
+              {
+                "lineHeight": "28px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "label-sm": [
+              "10px",
+              {
+                "lineHeight": "12px",
+                "letterSpacing": "0.1em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-sm": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "400"
+              }
+            ],
+            "label-md": [
+              "11px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.08em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-sm": [
+              "16px",
+              {
+                "lineHeight": "22px",
+                "letterSpacing": "0em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-xl-mobile": [
+              "28px",
+              {
+                "lineHeight": "34px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Technical hairline framing & zero-radius rules */
+    * {
+      border-radius: 0px !important;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .terminal-scroll::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .terminal-scroll::-webkit-scrollbar-track {
+      background: #f2f3ff;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: #bbcabf;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TOPNAVBAR (Shared Components Source of Truth) -->
+<header class="bg-surface dark:bg-inverse-surface text-primary dark:text-inverse-primary docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows z-30 sticky top-0">
+<div class="flex justify-between items-center w-full px-space-lg max-w-full h-14">
+<!-- Brand & Search Bar (Search on Left) -->
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-xl">verified_user</span>
+<span class="text-headline-sm font-headline-sm uppercase tracking-wider text-on-surface dark:text-inverse-on-surface font-bold whitespace-nowrap">
+            Audit Independer // Green Key
+          </span>
+</div>
+<!-- Search Bar on Left -->
+<div class="relative hidden lg:block w-72">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full pl-8 pr-3 py-1 bg-surface-container-lowest border border-outline-variant text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:border-tertiary focus:ring-0 outline-none" placeholder="Zoek auditor, dossiercode of norm..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links (Active item: "Bedrijven & Dossiers" representing Parties/Auditors registry) -->
+<nav class="hidden md:flex items-center space-x-6 h-full text-label-md font-label-md">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface py-3 font-medium hover:bg-surface-container-high dark:hover:bg-surface-container transition-none px-2" href="#">
+          Werklijst
+        </a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed font-bold py-3 px-2 flex items-center gap-1.5" href="#">
+<span>Bedrijven &amp; Dossiers</span>
+<span class="px-1 py-0.2 bg-primary-container text-on-primary-container text-[10px] font-bold">REGISTER</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface py-3 font-medium hover:bg-surface-container-high dark:hover:bg-surface-container transition-none px-2" href="#">
+          Planning &amp; Audits
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface py-3 font-medium hover:bg-surface-container-high dark:hover:bg-surface-container transition-none px-2" href="#">
+          Rapporten
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface py-3 font-medium hover:bg-surface-container-high dark:hover:bg-surface-container transition-none px-2" href="#">
+          Instellingen
+        </a>
+</nav>
+<!-- Trailing Action Controls & Profile Image -->
+<div class="flex items-center space-x-3">
+<!-- Secondary Action -->
+<button class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 border border-outline text-label-md font-label-md text-on-surface hover:bg-surface-container transition-none" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Exporteer Dossier</span>
+</button>
+<!-- Primary Action -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-on-surface text-on-primary text-label-md font-label-md font-bold uppercase tracking-wider hover:bg-primary-container hover:text-on-primary-container transition-none" type="button">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+<span>Nieuwe Audit</span>
+</button>
+<!-- Trailing Icons -->
+<div class="flex items-center pl-2 space-x-1 border-l border-outline-variant">
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Notificaties">
+<span class="material-symbols-outlined text-lg">notifications</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Help &amp; Richtlijnen">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Instellingen Filter">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+</div>
+<!-- Profile Avatar -->
+<div class="flex items-center pl-2">
+<img alt="Lead Auditor Avatar" class="w-8 h-8 object-cover border border-outline-variant" data-alt="Professional lead auditor avatar portrait in modern sharp corporate attire, high key clear natural lighting, clean slate editorial background with authoritative and focused compliance auditor posture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF6sWUJHAw9plu8K521SWsI03GRs1bXGkn73bofvI9h6IH8Enkfo7uCYEk2L5kEnlRQu7Qk4vOj_zhgOjVPSuzyxTYanxyYr4MuGmZENiR1K8QHCcnHqdRPe50egSNwglZeiXC97CnezsjB7k9meE3gcpUOKUhXyYG-KkwtsrgtVUjMxod32631NbcPTZAcYUZIQnXHzdMqTMWgx4GdMAFp-fG3cTRCVItkKlQBnSx"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SECONDARY BREADCRUMB / CONTEXT BANNER -->
+<div class="bg-surface-container-low border-b border-outline-variant px-space-lg py-2 flex flex-wrap items-center justify-between text-body-sm font-body-sm gap-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>Partijen &amp; Auditors Beheer</span>
+<span class="text-outline">/</span>
+<span class="font-bold text-on-surface">NL-REG-2024</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-bold">J. Bedacht (Senior Lead Auditor)</span>
+</div>
+<!-- Forensic Mode Status Ticker -->
+<div class="flex items-center gap-4 text-label-md font-label-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-primary"></span>
+<span class="text-on-surface font-semibold">GREEN KEY AUDIT REGISTER: ACTIEF</span>
+</div>
+<div class="text-on-surface-variant border-l border-outline-variant pl-3">
+        VOLGENDE PERIODIEKE HERACCREDITATIE: <span class="font-bold text-on-surface">31 DEC 2026</span>
+</div>
+</div>
+</div>
+<!-- MAIN APPLICATION SHELL (ASMMETRIC 12-COLUMN DATA MATRIX) -->
+<main class="flex-1 w-full max-w-full px-space-lg py-space-md grid grid-cols-12 gap-space-lg">
+<!-- LEFT COLUMN: AUDITOR SELECTOR & REGISTRY INDEX (SPAN 4) -->
+<section class="col-span-12 lg:col-span-4 flex flex-col space-y-3">
+<!-- Panel Header & Filter Controls -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-sm space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">badge</span>
+<h2 class="text-headline-sm font-headline-sm uppercase tracking-tight text-on-surface">Auditors Register</h2>
+</div>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 bg-surface-container text-on-secondary-container border border-outline-variant">
+            34 GEREGISTREERD
+          </span>
+</div>
+<!-- Filter Sub-tabs -->
+<div class="grid grid-cols-3 gap-1 text-center text-label-md font-label-md">
+<button class="py-1 bg-on-surface text-on-primary font-bold">Alle (34)</button>
+<button class="py-1 bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant">Gecertificeerd (28)</button>
+<button class="py-1 bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant">Kandidaat (6)</button>
+</div>
+<!-- Registry Search Box -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-sm">filter_list</span>
+<input class="w-full pl-7 pr-3 py-1 bg-background border border-outline-variant text-body-sm font-body-sm text-on-surface focus:border-tertiary focus:ring-0" placeholder="Filter op naam, landcode of status..." type="text" value="J. Bedacht"/>
+</div>
+</div>
+<!-- Auditor Registry List (Direct replacement for the clumsy screens) -->
+<div class="space-y-1.5 overflow-y-auto max-h-[calc(100vh-270px)] terminal-scroll pr-0.5">
+<!-- ACTIVE ITEM: J. Bedacht -->
+<div class="p-3 bg-surface-container-lowest border-2 border-on-surface relative shadow-sm cursor-pointer">
+<div class="absolute top-0 right-0 px-2 py-0.5 bg-primary text-on-primary text-[10px] font-bold tracking-wider">
+            [GESELECTEERD]
+          </div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">J. Bedacht</span>
+<span class="px-1.5 py-0 bg-primary-container/20 text-on-primary-container text-[10px] font-bold border border-primary-container">NL-AUD-2024-08</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Senior Lead Auditor • Standplaats: Amsterdam</p>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant grid grid-cols-3 text-label-md font-label-md gap-1">
+<div>
+<span class="text-outline text-[10px] block">CRITERIA GATE</span>
+<span class="text-primary font-bold">[8 / 8 OK]</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">DOSSIERS</span>
+<span class="font-bold text-on-surface">3 Lopend</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">STATUS</span>
+<span class="text-primary font-bold">Actief</span>
+</div>
+</div>
+</div>
+<!-- ITEM 2: AIDONIS DIMITRIS (Reflecting the candidate state from screenshot) -->
+<div class="p-3 bg-surface-container-lowest border border-outline-variant hover:border-outline cursor-pointer opacity-85">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-headline-sm">AIDONIS DIMITRIS</span>
+<span class="px-1 py-0 bg-amber-50 text-amber-800 text-[10px] font-bold border border-amber-300">GR-CAND</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Auditor Kandidaat • Griekenland (GR)</p>
+</div>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant grid grid-cols-3 text-label-md font-label-md gap-1">
+<div>
+<span class="text-outline text-[10px] block">CRITERIA GATE</span>
+<span class="text-error font-bold">[0 / 8 OPEN]</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">DOSSIERS</span>
+<span class="text-outline">0 Toegewezen</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">STATUS</span>
+<span class="text-amber-800 font-semibold">[BLOCKED]</span>
+</div>
+</div>
+</div>
+<!-- ITEM 3: Amalie Hansen -->
+<div class="p-3 bg-surface-container-lowest border border-outline-variant hover:border-outline cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-headline-sm">Amalie Hansen</span>
+<span class="px-1.5 py-0 bg-primary-container/20 text-on-primary-container text-[10px] font-bold border border-primary-container">DK-AUD-2023-14</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Lead Auditor • Denemarken (DK)</p>
+</div>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant grid grid-cols-3 text-label-md font-label-md gap-1">
+<div>
+<span class="text-outline text-[10px] block">CRITERIA GATE</span>
+<span class="text-primary font-bold">[8 / 8 OK]</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">DOSSIERS</span>
+<span class="font-bold text-on-surface">5 Lopend</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">STATUS</span>
+<span class="text-primary font-bold">Actief</span>
+</div>
+</div>
+</div>
+<!-- ITEM 4: Alondra Ibáñez Dávila -->
+<div class="p-3 bg-surface-container-lowest border border-outline-variant hover:border-outline cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-headline-sm">Alondra Ibáñez Dávila</span>
+<span class="px-1.5 py-0 bg-primary-container/20 text-on-primary-container text-[10px] font-bold border border-primary-container">MX-AUD-2022-03</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Senior Auditor • Mexico (MX)</p>
+</div>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant grid grid-cols-3 text-label-md font-label-md gap-1">
+<div>
+<span class="text-outline text-[10px] block">CRITERIA GATE</span>
+<span class="text-primary font-bold">[8 / 8 OK]</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">DOSSIERS</span>
+<span class="font-bold text-on-surface">2 Lopend</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">STATUS</span>
+<span class="text-primary font-bold">Actief</span>
+</div>
+</div>
+</div>
+<!-- ITEM 5: Andreas Katrakilis -->
+<div class="p-3 bg-surface-container-lowest border border-outline-variant hover:border-outline cursor-pointer opacity-85">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-headline-sm">Andreas Katrakilis</span>
+<span class="px-1 py-0 bg-amber-50 text-amber-800 text-[10px] font-bold border border-amber-300">GR-CAND</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Kandidaat • Griekenland (GR)</p>
+</div>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant grid grid-cols-3 text-label-md font-label-md gap-1">
+<div>
+<span class="text-outline text-[10px] block">CRITERIA GATE</span>
+<span class="text-error font-bold">[2 / 8 OPEN]</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">DOSSIERS</span>
+<span class="text-outline">0 Toegewezen</span>
+</div>
+<div>
+<span class="text-outline text-[10px] block">STATUS</span>
+<span class="text-amber-800 font-semibold">[IN COMPLETE]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Registry Actions Panel -->
+<div class="bg-surface-container p-3 border border-outline-variant flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant font-medium">Register synchronisatie:</span>
+<button class="inline-flex items-center gap-1 text-primary font-bold hover:underline">
+<span class="material-symbols-outlined text-sm">sync</span>
+<span>FEE Green Key API</span>
+</button>
+</div>
+</section>
+<!-- RIGHT COLUMN: EXTENSIVE AUDITOR DOSSIER & VERIFICATION COCKPIT (SPAN 8) -->
+<section class="col-span-12 lg:col-span-8 flex flex-col space-y-4">
+<!-- AUDITOR IDENTITY DOSSIER CARD -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md">
+<!-- Header row with Action Buttons -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-space-sm border-b border-outline-variant">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="text-headline-lg font-headline-lg font-bold tracking-tight text-on-surface">J. Bedacht</h1>
+<!-- Strict zero-radius Passed Gate tag -->
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-md font-label-md font-bold tracking-wider">
+                [OK] GECERTIFICEERD &amp; ACTIEF IN REGISTER
+              </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-0.5">
+              Senior Green Key Auditor • Registratiecode: <span class="font-mono font-bold text-on-surface">NL-AUD-2024-08</span> • Accreditatieorgaan: <span class="font-medium text-on-surface">FEE Nederland / Stichting KMVK</span>
+</p>
+</div>
+<!-- Direct Audit Cockpit Action Triggers -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1.5 bg-on-surface text-on-primary text-label-md font-label-md font-bold uppercase tracking-wider hover:bg-primary-container hover:text-on-primary-container transition-none flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">assignment_ind</span>
+<span>Nieuwe Audit Toewijzen</span>
+</button>
+<button class="px-2.5 py-1.5 border border-on-surface text-on-surface text-label-md font-label-md font-semibold hover:bg-surface-container transition-none flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+<span>Heraccrediteer</span>
+</button>
+<button class="px-2.5 py-1.5 border border-outline text-on-surface text-label-md font-label-md font-semibold hover:bg-surface-container transition-none flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>Tarieven</span>
+</button>
+<button class="px-2.5 py-1.5 border border-error text-error text-label-md font-label-md font-semibold hover:bg-error-container transition-none flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">block</span>
+<span>Schorsen</span>
+</button>
+</div>
+</div>
+<!-- Metadata Matrix Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3 text-body-sm font-body-sm">
+<div>
+<span class="text-outline text-label-sm font-label-sm block uppercase tracking-wider">Land / Standplaats</span>
+<span class="font-semibold text-on-surface">Nederland (NL) • Amsterdam</span>
+</div>
+<div>
+<span class="text-outline text-label-sm font-label-sm block uppercase tracking-wider">Contact E-mail</span>
+<a class="text-tertiary font-semibold hover:underline" href="mailto:j.bedacht@audit-independer.nl">j.bedacht@audit-independer.nl</a>
+</div>
+<div>
+<span class="text-outline text-label-sm font-label-sm block uppercase tracking-wider">Telefoonnummer</span>
+<span class="font-semibold text-on-surface">+31 (0)20 892 4190</span>
+</div>
+<div>
+<span class="text-outline text-label-sm font-label-sm block uppercase tracking-wider">KVK &amp; BTW Registratie</span>
+<span class="font-mono text-on-surface font-semibold">NL854129840B01 [VERIFIED]</span>
+</div>
+</div>
+</div>
+<!-- KWALIFICATIEMATRIX & 8 POORTVOORWAARDEN (FORENSIC VERIFICATION MODULE) -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">rule_folder</span>
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">Kwalificatiematrix &amp; Poortvoorwaarden (8/8 Voldaan)</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Conformiteitsgraad:</span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container font-mono font-bold text-label-md">100% GEREED VOOR PLANNING</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Vervangt het legacy waarschuwingssysteem. Alle 8 wettelijke en operationele toelatingseisen zijn forensisch gecontroleerd en gearchiveerd.
+        </p>
+<!-- 8 Essential Conditions Grid (2 columns x 4 rows) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1">
+<!-- 1. Auditor Overeenkomst -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">1. Auditor Overeenkomst</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Ondertekend &amp; Geldig (Periode 2024 - 2027)</p>
+<div class="text-[11px] text-outline font-mono">DOC-REF: GK-AGR-2024-NL882</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 2. Certificaat van Bekwaamheid -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">2. Green Key Certificaat Bekwaamheid</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Examen behaald (Geldig tot 31 dec 2026)</p>
+<div class="text-[11px] text-outline font-mono">CERT-NR: GK-COMP-88319</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 3. Gedragscode & Onafhankelijkheid -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">3. Gedragscode &amp; Integriteit</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Onafhankelijkheidsverklaring bekrachtigd</p>
+<div class="text-[11px] text-outline font-mono">VERIF: COI-NONE-2024</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 4. Bevoegdheid Categorieën -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">4. Bevoegdheid Categorieën</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">HH (Horeca/Hotels), REC (Recreatie &amp; Parken)</p>
+<div class="text-[11px] text-outline font-mono">SCOPES: CAT-A, CAT-B, CAT-D</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 5. Tarieven & Vergoedingen -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">5. Tarieven &amp; Vergoedingen</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Vastgelegd: € 300 / audit + reiskosten km-tarief</p>
+<div class="text-[11px] text-outline font-mono">TARIEFPLAN: 2024-STANDAARD</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 6. Reisbasis & Werkgebied -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">6. Reisbasis &amp; Werkgebied</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Regio Noord-West &amp; Randstad (Straal: 75 km)</p>
+<div class="text-[11px] text-outline font-mono">GEO-ZONE: NL-NH, NL-ZH, NL-UT</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 7. Geen Belangenverstrengeling -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">7. Geen Belangenverstrengeling</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Geen uitgesloten hotelketens of relaties</p>
+<div class="text-[11px] text-outline font-mono">RESTRICTIONS: NONE EXCLUDED</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+<!-- 8. BTW & Facturatie Gegevens -->
+<div class="p-2.5 bg-background border border-outline-variant flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">task_alt</span>
+<span class="font-bold text-on-surface text-headline-sm">8. BTW &amp; Facturatie Gegevens</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">VIES &amp; Belastingdienst verificatie voltooid</p>
+<div class="text-[11px] text-outline font-mono">STATUS: SELF-BILLING ACTIEF</div>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-primary-container text-label-sm font-label-sm font-bold">[OK]</span>
+</div>
+</div>
+</div>
+<!-- ACTIEVE TOEWYSINGEN & DOSSIERBELASTING SECTION -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">folder_managed</span>
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">Actieve Toewijzingen &amp; Dossierbelasting (3 Dossiers)</h3>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">
+            Max. auditcapaciteit: <strong class="text-on-surface">6 gelijktijdig</strong>
+</span>
+</div>
+<!-- Dossier Table with High Precision Cells -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant text-label-md font-label-md text-on-surface-variant">
+<th class="py-2 px-3">Dossiercode</th>
+<th class="py-2 px-3">Inrichting / Bedrijf</th>
+<th class="py-2 px-3">Audit Type</th>
+<th class="py-2 px-3">Geplande Datum</th>
+<th class="py-2 px-3">Status</th>
+<th class="py-2 px-3 text-right">Actie</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Item 1: GK90011 -->
+<tr class="hover:bg-surface-container-low transition-none">
+<td class="py-2.5 px-3 font-mono font-bold text-primary">GK90011</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Restaurant Vier Gangen</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Surveillance controle (Jaar 2)</td>
+<td class="py-2.5 px-3 font-mono">14 Nov 2024</td>
+<td class="py-2.5 px-3">
+<span class="px-1.5 py-0.5 bg-amber-50 text-amber-900 border border-amber-300 text-[11px] font-bold">
+                    [IN PROGRESS]
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-tertiary font-bold hover:underline">Open Dossier →</button>
+</td>
+</tr>
+<!-- Item 2: GK90008 -->
+<tr class="hover:bg-surface-container-low transition-none">
+<td class="py-2.5 px-3 font-mono font-bold text-primary">GK90008</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Hotel Spiegelgracht</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Nieuwe Certificering (Volledig)</td>
+<td class="py-2.5 px-3 font-mono">28 Nov 2024</td>
+<td class="py-2.5 px-3">
+<span class="px-1.5 py-0.5 bg-secondary-fixed text-on-secondary-fixed border border-outline-variant text-[11px] font-bold">
+                    [VOORBEREIDING]
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-tertiary font-bold hover:underline">Open Dossier →</button>
+</td>
+</tr>
+<!-- Item 3: GK90016 -->
+<tr class="hover:bg-surface-container-low transition-none">
+<td class="py-2.5 px-3 font-mono font-bold text-primary">GK90016</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Attractie De Draaimolen</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Periodieke Herkeuring</td>
+<td class="py-2.5 px-3 font-mono">12 Dec 2024</td>
+<td class="py-2.5 px-3">
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface-variant border border-outline-variant text-[11px] font-bold">
+                    [GEPLAND]
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-tertiary font-bold hover:underline">Open Dossier →</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- TABBED WORKSPACE: BESCHIKBAARHEIDSKALENDER & TARIEFAFSPRAKEN -->
+<div class="bg-surface-container-lowest border border-outline-variant">
+<!-- Tab Bar Header -->
+<div class="flex border-b border-outline-variant bg-surface-container-low">
+<button class="px-4 py-2.5 font-bold text-on-surface bg-surface-container-lowest border-r border-outline-variant border-t-2 border-t-primary flex items-center gap-1.5 text-label-md font-label-md">
+<span class="material-symbols-outlined text-sm text-primary">calendar_month</span>
+<span>Beschikbaarheidskalender Q4 2024</span>
+</button>
+<button class="px-4 py-2.5 font-medium text-on-surface-variant hover:text-on-surface border-r border-outline-variant flex items-center gap-1.5 text-label-md font-label-md">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+<span>Tariefafspraken &amp; Declaratieprotocol</span>
+</button>
+<button class="px-4 py-2.5 font-medium text-on-surface-variant hover:text-on-surface flex items-center gap-1.5 text-label-md font-label-md">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+<span>Audit Evaluatiehistorie (19)</span>
+</button>
+</div>
+<!-- Tab Body: Beschikbaarheid Terminal Matrix -->
+<div class="p-space-md space-y-3">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">
+              Inzetbare dagen per week: <strong class="text-on-surface">3 dagen (Dinsdag, Donderdag, Vrijdag)</strong>
+</span>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-primary-container"></span> Beschikbaar</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-secondary"></span> Toegewezen Audit</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-outline-variant"></span> Geblokkeerd</span>
+</div>
+</div>
+<!-- Micro Availability Grid -->
+<div class="grid grid-cols-7 gap-1 border border-outline-variant p-2 text-center text-label-sm font-label-sm bg-background">
+<div class="font-bold py-1 bg-surface-container-low">MA</div>
+<div class="font-bold py-1 bg-surface-container-low">DI</div>
+<div class="font-bold py-1 bg-surface-container-low">WO</div>
+<div class="font-bold py-1 bg-surface-container-low">DO</div>
+<div class="font-bold py-1 bg-surface-container-low">VR</div>
+<div class="font-bold py-1 bg-surface-container-low text-outline">ZA</div>
+<div class="font-bold py-1 bg-surface-container-low text-outline">ZO</div>
+<!-- Calendar Cells -->
+<div class="p-2 border border-outline-variant bg-surface-container-low text-outline">11 (Niet inzetb.)</div>
+<div class="p-2 border border-outline-variant bg-secondary text-on-secondary font-bold">12 (GK90011)</div>
+<div class="p-2 border border-outline-variant bg-surface-container-low text-outline">13 (Vrij)</div>
+<div class="p-2 border border-outline-variant bg-emerald-100 text-emerald-900 font-bold border-primary-container">14 [OPEN]</div>
+<div class="p-2 border border-outline-variant bg-emerald-100 text-emerald-900 font-bold border-primary-container">15 [OPEN]</div>
+<div class="p-2 border border-outline-variant bg-surface-container-low text-outline">16</div>
+<div class="p-2 border border-outline-variant bg-surface-container-low text-outline">17</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-label-md font-label-md">
+<span class="text-on-surface-variant font-mono">LAATST BIJGEWERKT DOOR AUDITOR: 22 OKT 2024, 09:14 CEST</span>
+<button class="text-tertiary font-bold hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit_calendar</span>
+<span>Rooster aanpassen</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- CONTEXT-AWARE DOCKED BOTTOM ACTION STRIP (Design System Component) -->
+<aside class="sticky bottom-0 w-full bg-inverse-surface text-inverse-on-surface border-t-2 border-outline px-space-lg py-2.5 z-40">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-label-md font-label-md">
+<!-- Forensic Live Tally Indicators -->
+<div class="flex flex-wrap items-center gap-5 font-mono">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary-container"></span>
+<span>DOSSIER STATUS: <strong class="text-inverse-primary">VOLLEDIG GEACCREDITEERD</strong></span>
+</div>
+<div class="border-l border-outline-variant/40 pl-4">
+          POORTVOORWAARDEN: <strong class="text-inverse-primary">8 / 8 VEREISTEN VOLDAAN</strong>
+</div>
+<div class="border-l border-outline-variant/40 pl-4">
+          BELASTING: <strong class="text-inverse-on-surface">3 / 6 DOSSIERS ACTIEF</strong>
+</div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1 bg-surface-container-lowest text-on-surface font-bold hover:bg-surface-container transition-none">
+          Dossier Exporteren (PDF/A)
+        </button>
+<button class="px-3 py-1 bg-primary-container text-on-primary-container font-bold hover:bg-inverse-primary transition-none flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">assignment_add</span>
+<span>Dossier Koppelen</span>
+</button>
+</div>
+</div>
+</aside>
+</body></html>

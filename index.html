@@ -1467,6 +1467,14 @@
 
       <!-- Right search and toolbar -->
       <div class="auditors-toolbar">
+        <button class="tool-btn" onclick="openAuditorRegistrationModal()" style="background:#2563eb; color:#ffffff; border-color:#1d4ed8; font-weight:600;" title="Nieuwe auditor aanmelden / registratieformulier">
+          <span class="material-symbols-outlined">person_add</span>
+          <span>Aanmelden Auditor</span>
+        </button>
+        <button class="tool-btn" onclick="openAuditorPublicPortal()" title="Bekijk het publieke aanmeldformulier zoals een auditor het ziet">
+          <span class="material-symbols-outlined">open_in_new</span>
+          <span>Publiek formulier</span>
+        </button>
         <div class="auditor-search-box">
           <span class="material-symbols-outlined auditor-search-icon">search</span>
           <input type="text" class="auditor-search-input" id="auditors-search-input" placeholder="Search"
@@ -5453,6 +5461,34 @@
     </div>
   </main>
 
+  <!-- ═══════════════════════ AUDITOR REGISTRATION (PUBLIC PORTAL VIEW) ═══════════════════════ -->
+  <main class="page-wrapper hidden" id="auditor-registration-public-view">
+    <div class="auditor-form-wrapper">
+      <div class="portal-hero-banner">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div class="portal-badge-pill">
+              <span class="material-symbols-outlined" style="font-size:14px;">verified</span>
+              <span>Green Key International Certification Body</span>
+            </div>
+            <h1 style="font-size:26px; font-weight:700; color:var(--text-primary); margin:0 0 8px 0;">Aanmeldformulier Kwalificatie Green Key Auditor</h1>
+            <p style="font-size:14px; color:var(--text-secondary); margin:0; max-width:640px; line-height:1.55;">
+              Meld u aan als gekwalificeerd lead auditor voor Audit Independer. Na indiening toetst de Certificatiecommissie uw dossier aan de 8 wettelijke poortvoorwaarden conform ISO/IEC 17021-1.
+            </p>
+          </div>
+          <button class="tool-btn" onclick="showAuditorsList()" style="background:rgba(255,255,255,0.08); border-color:var(--border-default);">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span>Terug naar Dashboard</span>
+          </button>
+        </div>
+      </div>
+
+      <form id="auditor-registration-form-page" onsubmit="handleAuditorRegistrationSubmit(event, 'page')">
+        <div id="auditor-form-fields-container-page"></div>
+      </form>
+    </div>
+  </main>
+
   <!-- ═══════════════════════ MODAL OVERLAY ═══════════════════════ -->
   <div class="modal-overlay hidden" id="modal-overlay" onclick="if(event.target===this)closeModal()">
     <div class="modal-dialog" id="modal-content">
@@ -5637,6 +5673,28 @@
       </div>
       <div class="modal-body" id="mgmt-answer-body" style="padding:20px;">
         <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  <!-- ═══════════════════════ AUDITOR REGISTRATION MODAL ═══════════════════════ -->
+  <div class="modal-overlay hidden" id="auditor-reg-modal-overlay" onclick="if(event.target===this)closeAuditorRegistrationModal()">
+    <div class="modal-dialog auditor-reg-dialog" id="auditor-reg-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <span class="material-symbols-outlined" style="color:#2563eb;">person_add</span>
+          <span>Aanmelden Nieuwe Auditor (Green Key CI)</span>
+        </h3>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="tool-btn" onclick="closeAuditorRegistrationModal(); openAuditorPublicPortal();" title="Bekijk als losstaande pagina">
+            <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+            <span style="font-size:12px;">Bekijk publieke pagina</span>
+          </button>
+          <button class="modal-close-btn" onclick="closeAuditorRegistrationModal()">✕</button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding:22px 24px; max-height:80vh; overflow-y:auto;">
+        <form id="auditor-registration-form-modal" onsubmit="handleAuditorRegistrationSubmit(event, 'modal')">
+          <div id="auditor-form-fields-container-modal"></div>
+        </form>
       </div>
     </div>
   </div>

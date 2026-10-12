@@ -12650,7 +12650,7 @@ function openAuditorPublicPortal() {
   if (el) el.classList.remove('hidden');
 
   const container = document.getElementById('auditor-form-fields-container-page');
-  if (container) {
+  if (container && (!container.children || container.children.length === 0)) {
     container.innerHTML = getAuditorFormTemplate('page');
   }
 
@@ -12719,3 +12719,18 @@ window.openAuditorRegistrationModal = openAuditorRegistrationModal;
 window.closeAuditorRegistrationModal = closeAuditorRegistrationModal;
 window.openAuditorPublicPortal = openAuditorPublicPortal;
 window.handleAuditorRegistrationSubmit = handleAuditorRegistrationSubmit;
+
+// Automatic hash routing for direct access (e.g. audit-independer.vercel.app/#aanmelden)
+function checkAuditorHashRoute() {
+  const hash = window.location.hash.toLowerCase();
+  if (hash === '#aanmelden' || hash === '#auditor-registration' || hash === '#auditor-form') {
+    openAuditorPublicPortal();
+  }
+}
+window.addEventListener('DOMContentLoaded', checkAuditorHashRoute);
+window.addEventListener('hashchange', checkAuditorHashRoute);
+// Check immediately on script load as well
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  checkAuditorHashRoute();
+}
+

@@ -40,10 +40,18 @@
           </a>
           <a href="#" class="nav-link" id="nav-settings"
             onclick="showSettingsNav(); event.preventDefault();">Settings</a>
+          <a href="#" class="nav-link" id="nav-auditor-form" onclick="openAuditorPublicPortal(); event.preventDefault();" style="display:flex; align-items:center; gap:5px; color:#38bdf8; font-weight:600;" title="Aanmeldformulier Kwalificatie Green Key Auditor">
+            <span class="material-symbols-outlined" style="font-size:16px;">assignment_ind</span>
+            <span>Aanmelden Auditor</span>
+          </a>
         </nav>
       </div>
 
       <div class="topbar-right">
+        <button class="tool-btn" onclick="openAuditorRegistrationModal()" style="background:#2563eb; color:#ffffff; font-weight:600; padding:6px 14px; border-radius:6px; border:none; display:inline-flex; align-items:center; gap:6px; cursor:pointer;" title="Nieuwe auditor aanmelden (pop-up formulier)">
+          <span class="material-symbols-outlined" style="font-size:16px;">person_add</span>
+          <span>Aanmelden Auditor</span>
+        </button>
         <div class="search-box" onclick="openCommandPalette()" title="Go to... (⌘K)">
           <span class="material-symbols-outlined search-icon">search</span>
           <input type="text" placeholder="Go to... (⌘K)" class="search-input" id="search-input"
@@ -191,6 +199,10 @@
     <div class="sub-nav-inner hidden" id="subnav-parties">
       <a href="#" class="sub-nav-link active" id="sub-auditors" onclick="showAuditorsList(); event.preventDefault();">
         <span>Auditors</span>
+      </a>
+      <a href="#" class="sub-nav-link" id="sub-auditor-form-tab" onclick="openAuditorPublicPortal(); event.preventDefault();" style="color:#38bdf8;">
+        <span class="material-symbols-outlined" style="font-size:15px; vertical-align:middle; margin-right:4px;">assignment_ind</span>
+        <span>Aanmeldformulier Auditor</span>
       </a>
       <a href="#" class="sub-nav-link" id="sub-national-operators" onclick="showNationalOperators(); event.preventDefault();">
         <span>National Operators</span>
@@ -5484,7 +5496,251 @@
       </div>
 
       <form id="auditor-registration-form-page" onsubmit="handleAuditorRegistrationSubmit(event, 'page')">
-        <div id="auditor-form-fields-container-page"></div>
+        <div id="auditor-form-fields-container-page">
+          <!-- Deel 1: Persoons- & Bedrijfsgegevens -->
+          <div class="form-section-card">
+            <div class="form-section-header">
+              <div class="form-section-num">1</div>
+              <div>
+                <h4 class="form-section-title">Persoons- en Bedrijfsgegevens</h4>
+                <p class="form-section-subtitle">Lead Auditor identificatie & officiële facturatiegegevens</p>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-field-group">
+                <label>Voor- en achternaam <span class="req">*</span></label>
+                <input type="text" class="form-input-control" id="page-name" placeholder="bijv. Marleen van den Berg" required />
+              </div>
+              <div class="form-field-group">
+                <label>E-mailadres <span class="req">*</span></label>
+                <input type="email" class="form-input-control" id="page-email" placeholder="m.vandenberg@auditservices.nl" required />
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-field-group">
+                <label>Telefoonnummer <span class="req">*</span></label>
+                <input type="tel" class="form-input-control" id="page-phone" placeholder="+31 6 12345678" required />
+              </div>
+              <div class="form-field-group">
+                <label>Bedrijfsnaam / ZZP <span class="req">*</span></label>
+                <input type="text" class="form-input-control" id="page-company" placeholder="Van den Berg Eco Auditing B.V." required />
+              </div>
+            </div>
+            <div class="form-grid-3">
+              <div class="form-field-group">
+                <label>KvK-nummer <span class="req">*</span></label>
+                <input type="text" class="form-input-control mono" id="page-kvk" placeholder="12345678" required />
+              </div>
+              <div class="form-field-group">
+                <label>BTW-nummer <span class="req">*</span></label>
+                <input type="text" class="form-input-control mono" id="page-vat" placeholder="NL882910293B01" required />
+              </div>
+              <div class="form-field-group">
+                <label>IBAN (Uitbetalingen) <span class="req">*</span></label>
+                <input type="text" class="form-input-control mono" id="page-iban" placeholder="NL91 ABNA 0412 3456 78" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- Deel 2: Werkgebied, Standplaats & Talen -->
+          <div class="form-section-card">
+            <div class="form-section-header">
+              <div class="form-section-num">2</div>
+              <div>
+                <h4 class="form-section-title">Werkgebied, Standplaats & Talen</h4>
+                <p class="form-section-subtitle">Bepaalt automatische toewijzing en reiskostenberekening</p>
+              </div>
+            </div>
+            <div class="form-grid-3">
+              <div class="form-field-group">
+                <label>Land van vestiging <span class="req">*</span></label>
+                <select class="form-input-control" id="page-country" required>
+                  <option value="Netherlands">Nederland</option>
+                  <option value="Belgium">België</option>
+                  <option value="Germany">Duitsland</option>
+                  <option value="Other">Overig / Internationaal</option>
+                </select>
+              </div>
+              <div class="form-field-group">
+                <label>Standplaats & Postcode <span class="req">*</span></label>
+                <input type="text" class="form-input-control" id="page-city" placeholder="3512 JE Utrecht" required />
+              </div>
+              <div class="form-field-group">
+                <label>Maximale reisstraal <span class="req">*</span></label>
+                <select class="form-input-control" id="page-radius" required>
+                  <option value="50">Tot 50 km</option>
+                  <option value="75" selected>Tot 75 km (Standaard)</option>
+                  <option value="150">Tot 150 km</option>
+                  <option value="national">Landelijk inzetbaar</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field-group">
+              <label>Mondelinge audittalen on-site <span class="req">*</span> <small style="font-weight:normal; color:var(--text-muted);">(Rapportage en review in het systeem gebeurt altijd in het Engels)</small></label>
+              <div style="display:flex; gap:16px; flex-wrap:wrap; padding:8px 0;">
+                <label style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-primary); cursor:pointer;">
+                  <input type="checkbox" name="page-lang" value="NL" checked style="accent-color:#3b82f6;" /> Nederlands
+                </label>
+                <label style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-primary); cursor:pointer;">
+                  <input type="checkbox" name="page-lang" value="EN" checked style="accent-color:#3b82f6;" /> Engels
+                </label>
+                <label style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-primary); cursor:pointer;">
+                  <input type="checkbox" name="page-lang" value="FR" style="accent-color:#3b82f6;" /> Frans
+                </label>
+                <label style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-primary); cursor:pointer;">
+                  <input type="checkbox" name="page-lang" value="DE" style="accent-color:#3b82f6;" /> Duits
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deel 3: Green Key Categorie-bevoegdheden -->
+          <div class="form-section-card">
+            <div class="form-section-header">
+              <div class="form-section-num">3</div>
+              <div>
+                <h4 class="form-section-title">Bevoegdheid Bedrijfscategorieën</h4>
+                <p class="form-section-subtitle">Vink de Green Key categorieën aan waarvoor u bevoegd bent of audits heeft geleid</p>
+              </div>
+            </div>
+            <div class="cat-checkbox-grid">
+              <label class="cat-checkbox-card">
+                <input type="checkbox" name="page-cat" value="HH" checked />
+                <div class="cat-checkbox-info">
+                  <span class="cat-code-badge">HH</span>
+                  <span class="cat-name">Hotels, Hostels & B&B</span>
+                </div>
+              </label>
+              <label class="cat-checkbox-card">
+                <input type="checkbox" name="page-cat" value="REC" checked />
+                <div class="cat-checkbox-info">
+                  <span class="cat-code-badge">REC</span>
+                  <span class="cat-name">Campings & Vakantieparken</span>
+                </div>
+              </label>
+              <label class="cat-checkbox-card">
+                <input type="checkbox" name="page-cat" value="RES" />
+                <div class="cat-checkbox-info">
+                  <span class="cat-code-badge">RES</span>
+                  <span class="cat-name">Restaurants & Catering</span>
+                </div>
+              </label>
+              <label class="cat-checkbox-card">
+                <input type="checkbox" name="page-cat" value="CON" />
+                <div class="cat-checkbox-info">
+                  <span class="cat-code-badge">CON</span>
+                  <span class="cat-name">Conferentiecentra & MICE</span>
+                </div>
+              </label>
+              <label class="cat-checkbox-card">
+                <input type="checkbox" name="page-cat" value="ATT" />
+                <div class="cat-checkbox-info">
+                  <span class="cat-code-badge">ATT</span>
+                  <span class="cat-name">Dagattracties & Musea</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Deel 4: Kwalificaties & Certificeringen -->
+          <div class="form-section-card">
+            <div class="form-section-header">
+              <div class="form-section-num">4</div>
+              <div>
+                <h4 class="form-section-title">Kwalificaties & Documenten</h4>
+                <p class="form-section-subtitle">Verplichte bewijsstukken voor accreditatiedossier (ISO/IEC 17021-1)</p>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-field-group">
+                <label>Green Key Certificaat Bekwaamheid Nr. <span class="req">*</span></label>
+                <input type="text" class="form-input-control mono" id="page-certno" placeholder="bijv. GK-COMP-88410" required />
+              </div>
+              <div class="form-field-group">
+                <label>Geldig tot datum <span class="req">*</span></label>
+                <input type="date" class="form-input-control" id="page-certexpiry" value="2027-12-31" required />
+              </div>
+            </div>
+            <div class="form-grid-2" style="margin-top:10px;">
+              <div class="upload-dropzone" onclick="showToast('Document upload', 'CV document geüpload en gekoppeld aan dossier.', 'success')">
+                <div class="material-symbols-outlined upload-dropzone-icon">description</div>
+                <div class="upload-dropzone-text">Curriculum Vitae (CV)</div>
+                <div class="upload-dropzone-hint">PDF of DOCX met relevante auditervaring</div>
+              </div>
+              <div class="upload-dropzone" onclick="showToast('Document upload', 'Polis beroepsaansprakelijkheid gekoppeld.', 'success')">
+                <div class="material-symbols-outlined upload-dropzone-icon">verified_user</div>
+                <div class="upload-dropzone-text">Beroepsaansprakelijkheidsverzekering</div>
+                <div class="upload-dropzone-hint">Kopie actuele polisdekking</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deel 5: Wettelijke Poortvoorwaarden & Verklaringen -->
+          <div class="form-section-card">
+            <div class="form-section-header">
+              <div class="form-section-num">5</div>
+              <div>
+                <h4 class="form-section-title">Integriteit, Onpartijdigheid & Overeenkomst</h4>
+                <p class="form-section-subtitle">Wettelijke poortvoorwaarden voor onafhankelijke certificatie</p>
+              </div>
+            </div>
+            
+            <div class="poortvoorwaarden-box">
+              <div class="poortvoorwaarden-title">
+                <span class="material-symbols-outlined" style="font-size:18px;">gavel</span>
+                <span>Wettelijke Accreditatieverklaringen (ISO/IEC 17021-1)</span>
+              </div>
+              
+              <label class="poort-checklist-item">
+                <input type="checkbox" id="page-cond-independence" required />
+                <div>
+                  <strong>Onafhankelijkheidsverklaring (24 maanden cooldown):</strong>
+                  Ik verklaar dat ik in de afgelopen 24 maanden geen consultancy-, advies- of managementsystemen heb geïmplementeerd voor vestigingen waarvoor ik audits zal uitvoeren.
+                </div>
+              </label>
+
+              <label class="poort-checklist-item">
+                <input type="checkbox" id="page-cond-nda" required />
+                <div>
+                  <strong>Geheimhoudingsovereenkomst (NDA) & Gedragscode:</strong>
+                  Ik ga akkoord met de geheimhoudingsplicht, de Gedragscode en de regels beschreven in het Audit Independer Auditor Handbook.
+                </div>
+              </label>
+
+              <label class="poort-checklist-item">
+                <input type="checkbox" id="page-cond-tariffs" required />
+                <div>
+                  <strong>Standaard Tarieven & Declaratie-akkoord:</strong>
+                  Ik conformeer mij aan de vastgelegde vergoedingen per categorie (€ 300 / audit) en de geldende kilometervergoeding volgens de tarievenlijst.
+                </div>
+              </label>
+
+              <label class="poort-checklist-item">
+                <input type="checkbox" id="page-cond-accuracy" required />
+                <div>
+                  <strong>Waarheidsgetrouwe opgave:</strong>
+                  Ik bevestig dat bovenstaande gegevens en certificaten naar waarheid zijn ingevuld en actueel zijn.
+                </div>
+              </label>
+            </div>
+
+            <div class="form-field-group">
+              <label>Eventuele uitgesloten ketens of relaties (Chains barred / Belangen):</label>
+              <input type="text" class="form-input-control" id="page-barred" placeholder="bijv. Geen, of: Van der Valk Hotel Utrecht (familieband)" />
+            </div>
+          </div>
+
+          <!-- Actiebalk onderaan formulier -->
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; margin-top:10px;">
+            <button type="button" class="tool-btn" onclick="showAuditorsList()">
+              Annuleren
+            </button>
+            <button type="submit" class="tool-btn" style="background:#2563eb; color:#ffffff; border-color:#1d4ed8; font-weight:700; padding:10px 24px; font-size:14px; cursor:pointer;">
+              <span class="material-symbols-outlined" style="font-size:18px;">send</span>
+              <span>Aanmelding Indienen & Dossier Registreren</span>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </main>

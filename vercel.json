@@ -1,7 +1,0 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/Audit independer test website/index.html" },
-    { "source": "/(.*)", "destination": "/Audit independer test website/$1" }
-  ]
-}
